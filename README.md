@@ -1,6 +1,5 @@
-# firebase-demo-app
- 
-TODO
+# loop-not-luck
+
 ## TODO
 - Forgot password route
 - Create user route

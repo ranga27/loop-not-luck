@@ -67,4 +67,4 @@ node_modules/
 .env
 
 # workspace var
-firebase-demo-app.code-workspace
+.code-workspace
