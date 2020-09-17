@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
+import { SignOutButton } from '../auth';
 import {
     Button,
     ErrorMessage,
     Heading,
+    Link,
     MaxWidthContentSection,
     DatePicker,
     TextArea,
@@ -84,6 +86,14 @@ export const PostAnOpportunityPage = () => {
 
     return isLoading ? <Heading>Loading...</Heading> : (
         <MaxWidthContentSection>
+                         <div style={{ height: '64px' }}>
+                <SignOutButton style={{ float: 'right' }} />
+                <Link to='/'>
+                    <Button
+                        style={{ float: 'right', marginRight: '8px' }}
+                    >HomePage</Button>
+                </Link>
+            </div>
             <Content>
                 <Heading>Post an Opportunity</Heading>
                 {showError

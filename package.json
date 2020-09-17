@@ -1,7 +1,7 @@
 {
   "name": "firebase-demo-app-starter",
   "version": "0.1.0",
-  "proxy": "https://europe-west2-loop-66.cloudfunctions.net",
+  "proxy": "https://europe-west2-loopnotluck.cloudfunctions.net",
   "private": true,
   "dependencies": {
     "@material-ui/core": "4.9.14",

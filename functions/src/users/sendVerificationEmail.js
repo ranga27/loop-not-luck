@@ -15,6 +15,6 @@ export const sendVerificationEmail = functions
             to: emailAddress,
             from: 'hello@loopnotluck.com',
             subject: 'Loop Not Luck Email Verification',
-            message: `Click this link to verify your email: https://europe-west2-loop-66.cloudfunctions.net/confirmEmail?conf=${confirmationHash}`,
+            message: `Click this link to verify your email: https://europe-west2-loopnotluck.cloudfunctions.net/confirmEmail?conf=${confirmationHash}`,
         });
     })

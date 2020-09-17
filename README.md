@@ -15,6 +15,7 @@ TODO
 - 1st screen for companies is roles tiles & then clicking on it should go to individual role screen
 - Hide screens based on access, test candidates can't view company pages (use firstore auth)
 - flatfile - the elegant import button
-- use isAuthed for authenticating both user & role for the respective route
+- use isAuthed for authenticating both user & role for the respective route - or pass role as a decision variable
 - Do we need cloud function to getCandidate
-- add modal to view candidate & view opps
+- add modal to view candidate as quick view and then forward to detail page & view opps
+- anbody can see anyone's opps, put an auth rule on the pages or on firestore

@@ -1,6 +1,6 @@
 import firebase from 'firebase/app';
 
-export const getCandidate = async id => {
+export const getCandidateDetails = async id => {
     const candidateDoc = await firebase.firestore()
         .collection('candidates')
         .doc(id)

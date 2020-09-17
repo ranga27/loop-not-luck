@@ -10,7 +10,6 @@ import {
     SelectionList,
     TextInput,
 } from '../ui';
-import { RestaurantListItem, searchRestaurants } from '../restaurants';
 import {CandidateListItem, getRecommendations} from '../candidates';
 
 const SearchSection = styled.div`
@@ -52,8 +51,8 @@ export const CandidateSearchPage = () => {
     useEffect(() => {
         // Firebase code for loading search results goes here
         const loadSearchResults = async () => {
-            const results = await searchRestaurants(searchString);
-            setSearchResults(results);
+           // const results = await searchRestaurants(searchString);
+           // setSearchResults(results);
         }
 
         loadSearchResults();

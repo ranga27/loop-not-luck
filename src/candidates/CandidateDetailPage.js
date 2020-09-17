@@ -14,8 +14,7 @@ import {
 } from '../ui';
 import { ReviewListItem, getReviews } from '../reviews';
 import { MakeAReservationForm } from '../reservations';
-import { getcandidate } from '../candidates';
-import { getCandidate } from '../candidates';
+import { getCandidateDetails } from '../candidates';
 const ThumbnailWrap = styled.div`
     display: flex;
     flex-direction: column;
@@ -58,7 +57,7 @@ export const CandidateDetailPage = () => {
     useEffect(() => {
         // Firebase code for loading the candidate goes here
         const loadCandidate = async () => {
-            const result = await getCandidate(id);
+            const result = await getCandidateDetails(id);
             setCandidate(result);
             setIsLoading(false);
         }

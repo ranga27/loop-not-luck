@@ -61,7 +61,7 @@ export const SignInForm = () => {
             <Heading>Loop Not Luck</Heading>
             {errorMessage
                 ? <ErrorMessage style={{
-                    marginBottom: '16px',
+                    marginBottom: '16px', width: '320px',
                 }}>
                     {errorMessage}
                 </ErrorMessage>
