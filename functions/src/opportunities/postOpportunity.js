@@ -2,9 +2,7 @@ import * as functions from 'firebase-functions';
 import * as admin from 'firebase-admin';
 
 //oncall function so that FE can call as in when wanted 
-export const postOpportunity = functions
-    .region('europe-west2')
-    .https.onCall(async (data, context) => {
+export const postOpportunity = functions.https.onCall(async (data, context) => {
         const newOpportunity = data;
         const userId = context.auth.uid;
         const {

@@ -1,7 +1,7 @@
 {
-  "name": "firebase-demo-app-starter",
+  "name": "loop-not-luck",
   "version": "0.1.0",
-  "proxy": "https://europe-west2-loopnotluck.cloudfunctions.net",
+  "proxy": "https://us-central1-loopnotluck.cloudfunctions.net/",
   "private": true,
   "dependencies": {
     "@material-ui/core": "4.9.14",

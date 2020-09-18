@@ -49,7 +49,7 @@ export const SignInForm = () => {
     const onSignInClicked = async () => {
         try {
             const role = await signIn(emailValue, passwordValue);
-                history.push('/');
+            history.push('/');
         }
         catch (e) {
             setErrorMessage(e.message);
@@ -61,7 +61,7 @@ export const SignInForm = () => {
             <Heading>Loop Not Luck</Heading>
             {errorMessage
                 ? <ErrorMessage style={{
-                    marginBottom: '16px', width: '320px',
+                    marginBottom: '16px',
                 }}>
                     {errorMessage}
                 </ErrorMessage>

@@ -10,7 +10,7 @@ import {
     TextInput,
 } from '../ui';
 import { signOut } from './signOut';
-
+import { createAccount } from './createAccount';
 /* These are styled components, which are used throughout
 the application. Basically, they allow us to define CSS
 inside our React JavaScript files, instead of having
@@ -45,7 +45,7 @@ export const CreateAccountPage = () => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
-    const accountType = 'candidate';//account type
+    const role = 'candidate';
 
     /* We can use the "useHistory" hook to change the browser
     URL programmatically, such as after some async operation completes */
@@ -59,7 +59,7 @@ export const CreateAccountPage = () => {
         if (password !== confirmPassword) return 'Passwords do not match';
         return null;
     }
-    
+
     /* Here's the function that will be called when the user
     clicks the "Create Account" button. */
     const onClickCreate = async () => {
@@ -78,21 +78,14 @@ export const CreateAccountPage = () => {
             lastName,
             emailAddress,
             password,
-            accountType,
+            role,
         };
-        //This is to avoid CORS errors
-        await fetch('/createAccount', {
-            method: 'POST',
-            body: JSON.stringify({newUserInfo}),
-            headers:{
-                'Content-Type':'application/json',
-            },
-        });
+
+        await createAccount(newUserInfo)
+
         //TODO: convert the alert into a modal dialog
         alert('Account created! Please check your inbox for a confirmation email');
-
         await signOut();
-
         history.push('/sign-in');
     }
 
@@ -154,7 +147,6 @@ export const CreateAccountPage = () => {
                                     onChange={e => setConfirmPassword(e.target.value)} />
                             </td>
                         </tr>
-
                     </tbody>
                 </FieldsTable>
                 <FullWidthButton

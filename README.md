@@ -16,5 +16,6 @@
 - flatfile - the elegant import button
 - use isAuthed for authenticating both user & role for the respective route - or pass role as a decision variable
 - Do we need cloud function to getCandidate
+- move auth from cloud functions to native functions 
 - add modal to view candidate as quick view and then forward to detail page & view opps
-- anbody can see anyone's opps, put an auth rule on the pages or on firestore
+- anbody can see anyone's opps, put an auth rule on the pages or on firestore or use https://firebase.google.com/docs/auth/admin/custom-claims

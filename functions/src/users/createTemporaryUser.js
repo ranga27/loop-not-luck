@@ -7,7 +7,7 @@ export const createTemporaryUser = async (authUid, newUserInfo) => {
         emailAddress,
         firstName,
         lastName,
-        accountType,
+        role,
     } = newUserInfo;
     const confirmationHash = uuid();
     const createdAt = Date.now();
@@ -16,7 +16,7 @@ export const createTemporaryUser = async (authUid, newUserInfo) => {
         emailAddress,
         firstName,
         lastName,
-        accountType,
+        role,
         confirmationHash,
         createdAt,
     };
