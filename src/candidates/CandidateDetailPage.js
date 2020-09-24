@@ -49,7 +49,7 @@ export const CandidateDetailPage = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [candidate, setCandidate] = useState({}); //state for the candidate
     const [reviews, setReviews] = useState([]); //state for the reviews
-    const { firstName, lastName, email , phoneNumber, bio } = candidate || {};
+    const { firstName, lastName, email , phoneNumber, selectedTags = [] } = candidate || {};
 
     const { id } = useParams();
     const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -78,7 +78,7 @@ export const CandidateDetailPage = () => {
         <MaxWidthContentSection>
             <Heading>{firstName} {lastName}</Heading>
             <ThumbnailWrap>
-                <Thumbnail height='300px' width='600px' url={candidate.imageUrl} />
+                <Thumbnail height='300px' width='300px' url={candidate.imageUrl} />
             </ThumbnailWrap>
             <DetailsSection>
 
@@ -87,9 +87,9 @@ export const CandidateDetailPage = () => {
                     {phoneNumber}&nbsp;
                 </div>
                 <TagSection>
-                    {/* {tags.map(tag => <Tag key={tag}>{tag}</Tag>)} */}
+                    {selectedTags.map(tag => <Tag key={tag.label}>{tag.label}</Tag>)}
                 </TagSection>
-                <div>{bio}</div>
+                <div></div>
             </DetailsSection>
             <Modal
                 isOpen={modalIsOpen}

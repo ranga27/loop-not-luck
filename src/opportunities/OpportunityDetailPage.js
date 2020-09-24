@@ -55,7 +55,7 @@ export const OpportunityDetailPage = () => {
         description,
         qualification,
         howToApply,
-        deadline, } = opportunity || {};
+        deadline, tags = []} = opportunity || {};
 
     const { id } = useParams();
     const [modalIsOpen, setModalIsOpen] = useState(false);

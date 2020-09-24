@@ -7,7 +7,7 @@ export const getCandidateDetails = async id => {
         .get();
 
     const candidate = candidateDoc.data();
-
+    console.log(candidate);
     return {
         ...candidate,
         id,

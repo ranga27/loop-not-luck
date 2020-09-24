@@ -16,6 +16,8 @@ import {
   PostAnOpportunityThankYouPage,
   OpportunitySearchPage,
   OpportunityDetailPage,
+  OpportunityEditPage,
+  OpportunityEditDetailsPage,
 } from '../opportunities';
 import {
   RestaurantDetailPage,
@@ -31,9 +33,11 @@ import {
 import {
   CandidateSearchPage,
   CandidateDetailPage,
+  CandidateEditPage,
+  CandidateEditProfilePage,
 } from '../candidates';
 import './App.css';
-
+import {TestPage} from '../test'
 /*
   This is the main React component that we render the rest of
   of app's components inside of. In our app, we're using this
@@ -48,6 +52,9 @@ export function App() {
       <Switch>
         <Route path='/sign-in'>
           <SignInPage />
+        </Route>
+        <Route path='/test'>
+          <TestPage/>
         </Route>
         <Route path='/create-account'>
           <CreateAccountPage />
@@ -70,14 +77,14 @@ export function App() {
         <ProtectedRoute isAuthed={!!user} isLoading={isLoading} path='/candidate-search'>
           <CandidateSearchPage />
         </ProtectedRoute>
-        <ProtectedRoute isAuthed={!!user} isLoading={isLoading} path='/restaurants/:id'>
-          <RestaurantDetailPage />
+        <ProtectedRoute isAuthed={!!user} isLoading={isLoading} path='/candidate-edit'>
+          <CandidateEditPage />
+        </ProtectedRoute>
+        <ProtectedRoute isAuthed={!!user} isLoading={isLoading} path='/candidate-profile-edit/:id'>
+          <CandidateEditProfilePage />
         </ProtectedRoute>
         <ProtectedRoute isAuthed={!!user} isLoading={isLoading} path='/candidates/:id'>
           <CandidateDetailPage />
-        </ProtectedRoute>
-        <ProtectedRoute isAuthed={!!user} isLoading={isLoading} path='/write-a-review/:id'>
-          <WriteAReviewPage />
         </ProtectedRoute>
         <ProtectedRoute isAuthed={!!user} isLoading={isLoading} path='/post-an-opportunity'>
           <PostAnOpportunityPage />
@@ -90,6 +97,12 @@ export function App() {
         </ProtectedRoute>
         <ProtectedRoute isAuthed={!!user} isLoading={isLoading} path='/opportunity/:id'>
           <OpportunityDetailPage />
+        </ProtectedRoute>
+        <ProtectedRoute isAuthed={!!user} isLoading={isLoading} path='/edit-opportunity'>
+          <OpportunityEditPage />
+        </ProtectedRoute>
+        <ProtectedRoute isAuthed={!!user} isLoading={isLoading} path='/opportunity-edit-details/:id'>
+          <OpportunityEditDetailsPage />
         </ProtectedRoute>
       </Switch>
     </Router>

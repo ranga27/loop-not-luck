@@ -57,11 +57,11 @@ export const PostAnOpportunityPage = () => {
     const [opportunityHowToApply, setOpportunityHowToApply] = useState('');
     const [opportunityDeadline, setOpportunityDeadline] = useState('');
     const [showError, setShowError] = useState(false);
-
+    
     // This is how we get URL parameters in React, use this to load certain account specific variables like company name
     // const { id } = useParams();
     const history = useHistory();
-
+    
     const onClickSubmitOpportunity = async () => {
         // Check to make sure the user has actually filled out the form
         if (opportunityTitle.length > 0 && opportunityOrganisation.length > 0 && opportunityLocation.length > 0 && opportunityDescription.length > 0) {
@@ -86,7 +86,7 @@ export const PostAnOpportunityPage = () => {
 
     return isLoading ? <Heading>Loading...</Heading> : (
         <MaxWidthContentSection>
-                         <div style={{ height: '64px' }}>
+            <div style={{ height: '64px' }}>
                 <SignOutButton style={{ float: 'right' }} />
                 <Link to='/'>
                     <Button
@@ -173,7 +173,8 @@ export const PostAnOpportunityPage = () => {
                                     cols='50'
                                     rows='5' />
                             </td>
-                        </tr><tr>
+                        </tr>
+                        <tr>
                             <td>Deadline:</td>
                             <td>
                                 <FullWidthInput

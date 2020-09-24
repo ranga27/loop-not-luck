@@ -5,3 +5,6 @@ export { PostAnOpportunityThankYouPage} from './PostAnOpportunityThankYouPage';
 export { getOpportunities } from './getOpportunities';
 export { OpportunityListItem } from './OpportunityListItem';
 export { getOpportunityDetail } from './getOpportunityDetail';
+export { OpportunityEditPage } from './OpportunityEditPage';
+export { OpportunityEditDetailsPage } from './OpportunityEditDetailsPage';
+

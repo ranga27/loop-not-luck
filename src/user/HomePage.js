@@ -30,15 +30,15 @@ const ButtonWrap = styled.div`
 
 const HomePageFieldsTable = styled.table`
     width: 100%;
-    padding: 32px;
+    padding: 8px;
 
     td {
-        padding: 16px;
+        padding: 8px;
     }
 `;
 
 const FullWidthButton = styled(Button)`
-    width: 50%;
+    width: 300px;
 `;
 
 /*
@@ -85,6 +85,13 @@ export const HomePage = () => {
                                         >View Candidates</FullWidthButton>
                                     </Link>
                                 </td>
+                                <td>
+                                    <Link to='/candidate-edit'>
+                                        <FullWidthButton
+                                            type='shadow'
+                                        >Edit Candidate</FullWidthButton>
+                                    </Link>
+                                </td>
                             </tr>
                             <tr>
                                 <td>
@@ -92,6 +99,13 @@ export const HomePage = () => {
                                         <FullWidthButton
                                             type='shadow'
                                         >Post Opportunity</FullWidthButton>
+                                    </Link>
+                                </td>
+                                <td>
+                                    <Link to='/edit-opportunity'>
+                                        <FullWidthButton
+                                            type='shadow'
+                                        >Edit Opportunity</FullWidthButton>
                                     </Link>
                                 </td>
                             </tr>
