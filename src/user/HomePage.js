@@ -45,27 +45,6 @@ const FullWidthButton = styled(Button)`
     This page displays all of the user's current reservations in a list
 */
 export const HomePage = () => {
-    const [reservations, setReservations] = useState([]);
-    const [detailModalIsOpen, setDetailModalIsOpen] = useState(false);
-    const [selectedReservation, setSelectedReservation] = useState(undefined);
-
-    const onItemSelected = reservation => {
-        setSelectedReservation(reservation);
-        setDetailModalIsOpen(true);
-    }
-
-    const onRequestCloseModal = () => {
-        setSelectedReservation(undefined);
-        setDetailModalIsOpen(false);
-    }
-
-    useEffect(() => {
-        //like the add authentication listener wrapper function we created earlier 
-        const unsubscribe = subscribeToCurrentUserReservations(results => {
-            setReservations(results);
-        });
-        return unsubscribe;
-    }, []);//pass empty array to this useEffect hook, so that this only gets called once when the component mounts.
     return (
         <>
             <MaxWidthContentSection>
@@ -115,6 +94,13 @@ export const HomePage = () => {
                                         <FullWidthButton
                                             type='shadow'
                                         >View Opportunities</FullWidthButton>
+                                    </Link>
+                                </td>
+                                <td>
+                                    <Link to='/match-candidates'>
+                                        <FullWidthButton
+                                            type='shadow'
+                                        >Match Candidates</FullWidthButton>
                                     </Link>
                                 </td>
                             </tr>

@@ -43,19 +43,19 @@ const TagSection = styled.div`
     in the results section of the Search page.
 */
 export const CandidateListItem = ({ item: candidate, onSelect }) => {
-    const { firstName, lastName, gender, email } = candidate;
+    const { firstName, gender, selectedTags = []} = candidate;
     return (
         <ListItemContainer>
             <ThumbnailWrap>
                 <Thumbnail width='100px' height='100px' url={candidate.imageUrl} />
             </ThumbnailWrap>
             <DetailsSection>
-                <MainDetail>{firstName} {lastName}</MainDetail>
+                <MainDetail>{firstName}</MainDetail>
                 <div>
-                    {gender},&nbsp;
-                    {email}&nbsp;
+                    {gender}
                 </div>
                 <TagSection>
+                    {selectedTags.map(tag => <Tag key={tag.label}>{tag.label}</Tag>)}
                 </TagSection>
             </DetailsSection>
             <ButtonWrap>

@@ -17,7 +17,7 @@ import {
 import { uploadFile } from '../util';
 import { getOpportunityDetail } from './getOpportunityDetail';
 
-import { updateCandidateDetails } from './updateCandidateDetails';
+import { updateOpportunityDetails } from './updateOpportunityDetails';
 
 const Form = styled.div`
     width: 600px;
@@ -41,10 +41,10 @@ const FullWidthButton = styled(Button)`
 const animatedComponents = makeAnimated();
 
 const Tags = [
-    { label: "Logical", value: 355 },
-    { label: "Structured", value: 54 },
-    { label: "Spiritual", value: 43 },
-    { label: "Visual", value: 61 }
+    { label: "Confident", value: 355 },
+    { label: "Analytical", value: 54 },
+    { label: "Proactive", value: 43 },
+    { label: "Creative", value: 61 }
 ];
 /*
     This page loads a user's current profile data (name, bio, etc.)
@@ -65,6 +65,7 @@ export const OpportunityEditDetailsPage = () => {
         const loadOpportunityDetail = async () => {
             const opportunity = await getOpportunityDetail(id);
             setOpportunityTitle(opportunity.title);
+            setOpportunityOrganisation(opportunity.organisation);
             setselectedTags(opportunity.selectedTags || []);
             setIsLoading(false);
         }
@@ -82,12 +83,12 @@ export const OpportunityEditDetailsPage = () => {
             : null;
 
         const changes = {
-            firstName,
-            lastName,
+            opportunityTitle,
+            opportunityOrganisation,
             selectedTags,
             id,
         }
-        await updateCandidateDetails(profilePictureUrl
+        await updateOpportunityDetails(profilePictureUrl
             ? { ...changes, profilePictureUrl }
             : changes);
 

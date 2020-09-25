@@ -43,7 +43,7 @@ const TagSection = styled.div`
     in the results section of the Search page.
 */
 export const OpportunityListItem = ({ item: opportunity, onSelect }) => {
-    const { title, organisation, location, type, deadline} = opportunity;
+    const { title, organisation, location, positionType, deadline} = opportunity;
     return (
         <ListItemContainer>
             <ThumbnailWrap>
@@ -53,7 +53,7 @@ export const OpportunityListItem = ({ item: opportunity, onSelect }) => {
                 <MainDetail>{title} {organisation}</MainDetail>
                 <div>
                     Location: {location}&nbsp;
-                    Type: {type}&nbsp;
+                    Type: {positionType}&nbsp;
                     Deadline: {deadline}&nbsp;
                 </div>
                 <TagSection>

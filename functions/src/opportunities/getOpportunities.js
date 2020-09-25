@@ -6,7 +6,6 @@ export const getOpportunities = functions.https.onCall(async (data, context) => 
         //to limit our query, best practice else its expensive
         //to do put role based access in the query
         const querySnapshot = await store.collection('opportunities')
-            .limit(3)
             .get();
 
         const opportunities = querySnapshot.docs.map(doc => ({

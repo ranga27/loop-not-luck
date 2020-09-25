@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { SignOutButton } from '../auth';
+import Select from "react-select";
+
 import {
     Button,
     ErrorMessage,
@@ -43,6 +45,16 @@ const FullWidthInput = styled(TextInput)`
     width: 100%;
 `;
 
+const PositionTypes = [
+    { label: "Internship", value: 0 },
+    { label: "Graduate Scheme", value: 1 },
+    { label: "Entry-Level Position", value: 2 },
+    { label: "Apprenticeship", value: 3 },
+    { label: "Work Experience", value: 4 },
+    { label: "Summer Placement", value: 5 },
+    { label: "1 year Industrial Placement", value: 6 }
+];
+
 /*
     This component allows company and admin user to write and post opportunites.
 */
@@ -52,16 +64,19 @@ export const PostAnOpportunityPage = () => {
     const [opportunityOrganisation, setOpportunityOrganisation] = useState('');
     const [opportunityLocation, setOpportunityLocation] = useState('');
     const [opportunityType, setOpportunityType] = useState('');
+    const [opportunityDepartment, setOpportunityDepartment] = useState('');
     const [opportunityDescription, setOpportunityDescription] = useState('');
     const [opportunityQualification, setOpportunityQualification] = useState('');
     const [opportunityHowToApply, setOpportunityHowToApply] = useState('');
     const [opportunityDeadline, setOpportunityDeadline] = useState('');
+    const [opportunityStart, setOpportunityStart] = useState('');
+
     const [showError, setShowError] = useState(false);
-    
+
     // This is how we get URL parameters in React, use this to load certain account specific variables like company name
     // const { id } = useParams();
     const history = useHistory();
-    
+
     const onClickSubmitOpportunity = async () => {
         // Check to make sure the user has actually filled out the form
         if (opportunityTitle.length > 0 && opportunityOrganisation.length > 0 && opportunityLocation.length > 0 && opportunityDescription.length > 0) {
@@ -70,11 +85,13 @@ export const PostAnOpportunityPage = () => {
                 title: opportunityTitle,
                 organisation: opportunityOrganisation,
                 location: opportunityLocation,
-                type: opportunityType,
+                positionType: opportunityType['label'],
                 description: opportunityDescription,
                 qualification: opportunityQualification,
                 howToApply: opportunityHowToApply,
                 deadline: opportunityDeadline,
+                department: opportunityDepartment,
+                startDate: opportunityStart
             };
 
             await postOpportunity(newOpportunity);
@@ -129,10 +146,19 @@ export const PostAnOpportunityPage = () => {
                         </tr>
                         <tr>
                             <td>Position Type:</td>
+                            <td><Select
+                                    onChange={setOpportunityType}
+                                    options={PositionTypes}
+                                    value={opportunityType}
+                                />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Department:</td>
                             <td>
                                 <FullWidthInput
-                                    value={opportunityType}
-                                    onChange={e => setOpportunityType(e.target.value)} />
+                                    value={opportunityDepartment}
+                                    onChange={e => setOpportunityDepartment(e.target.value)} />
                             </td>
                         </tr>
                         <tr>
@@ -149,7 +175,7 @@ export const PostAnOpportunityPage = () => {
                             </td>
                         </tr>
                         <tr>
-                            <td>Qualification:</td>
+                            <td>Required Qualifications:</td>
                             <td>
                                 <TextArea
                                     value={opportunityQualification}
@@ -183,9 +209,17 @@ export const PostAnOpportunityPage = () => {
                                     onChange={e => setOpportunityDeadline(e.target.value)} />
                             </td>
                         </tr>
+                        <tr>
+                            <td>Start Date of Role:</td>
+                            <td>
+                                <FullWidthInput
+                                    placeholder='DD/MM/YYYY'
+                                    value={opportunityStart}
+                                    onChange={e => setOpportunityStart(e.target.value)} />
+                            </td>
+                        </tr>
                     </tbody>
                 </OpportunityFieldsTable>
-
                 <FullWidthButton
                     onClick={onClickSubmitOpportunity}
                 >Submit</FullWidthButton>

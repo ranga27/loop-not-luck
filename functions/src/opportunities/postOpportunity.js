@@ -9,11 +9,13 @@ export const postOpportunity = functions.https.onCall(async (data, context) => {
             title,
             organisation,
             location,
-            type,
+            positionType,
             description,
             qualification,
             howToApply,
             deadline,
+            department,
+            startDate,
         } = newOpportunity;
 
         const store = admin.firestore();
@@ -22,11 +24,13 @@ export const postOpportunity = functions.https.onCall(async (data, context) => {
                 title,
                 organisation,
                 location,
-                type,
+                positionType,
                 description,
                 qualification,
                 howToApply,
                 deadline,
+                department,
+                startDate,
                 userId,
             });
     })
