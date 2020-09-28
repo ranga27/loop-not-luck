@@ -8,7 +8,8 @@ import {
     Link,
     MaxWidthContentSection,
     Modal,
-    SelectionList,
+    SelectionList, Thumbnail,
+
 } from '../ui';
 import { ReservationsListItem, ReservationDetailForm, subscribeToCurrentUserReservations } from '../reservations';
 
@@ -41,6 +42,10 @@ const FullWidthButton = styled(Button)`
     width: 300px;
 `;
 
+const ThumbnailWrap = styled.div`
+    flex: 2;
+`;
+
 /*
     This page displays all of the user's current reservations in a list
 */
@@ -49,6 +54,9 @@ export const HomePage = () => {
         <>
             <MaxWidthContentSection>
                 <div style={{ height: '64px' }}>
+                    <ThumbnailWrap style={{ float: 'left' }}>
+                        <Thumbnail width='120px' height='120px' url={'https://storage.googleapis.com/loopnotluck.appspot.com/assets/LoopWhite.png'} />
+                    </ThumbnailWrap>
                     <SignOutButton style={{ float: 'right' }} />
                 </div>
                 <Content>

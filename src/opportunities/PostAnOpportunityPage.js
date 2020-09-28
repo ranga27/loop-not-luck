@@ -14,6 +14,7 @@ import {
     TextArea,
     TextInput,
     Thumbnail,
+    Checkbox,
     UploadMultipleFilesButton,
 } from '../ui';
 import { postOpportunity } from './postOpportunity';
@@ -70,6 +71,7 @@ export const PostAnOpportunityPage = () => {
     const [opportunityHowToApply, setOpportunityHowToApply] = useState('');
     const [opportunityDeadline, setOpportunityDeadline] = useState('');
     const [opportunityStart, setOpportunityStart] = useState('');
+    const [isChecked, setIsChecked] = useState(false);
 
     const [showError, setShowError] = useState(false);
 
@@ -91,12 +93,14 @@ export const PostAnOpportunityPage = () => {
                 howToApply: opportunityHowToApply,
                 deadline: opportunityDeadline,
                 department: opportunityDepartment,
-                startDate: opportunityStart
+                startDate: opportunityStart,
+                coverLetter: isChecked
             };
-
-            await postOpportunity(newOpportunity);
-            history.push('/opportunity/thank-you');
+            //await postOpportunity(newOpportunity);
+            //history.push('/opportunity/thank-you');
         } else {
+            console.log(isChecked);
+
             setShowError(true);
         }
     }
@@ -147,10 +151,10 @@ export const PostAnOpportunityPage = () => {
                         <tr>
                             <td>Position Type:</td>
                             <td><Select
-                                    onChange={setOpportunityType}
-                                    options={PositionTypes}
-                                    value={opportunityType}
-                                />
+                                onChange={setOpportunityType}
+                                options={PositionTypes}
+                                value={opportunityType}
+                            />
                             </td>
                         </tr>
                         <tr>
@@ -216,6 +220,16 @@ export const PostAnOpportunityPage = () => {
                                     placeholder='DD/MM/YYYY'
                                     value={opportunityStart}
                                     onChange={e => setOpportunityStart(e.target.value)} />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <Checkbox
+                                    checked={isChecked}
+                                    onChange={setIsChecked}
+                                    label='Cover Letter Required'
+                                />
                             </td>
                         </tr>
                     </tbody>

@@ -22,3 +22,6 @@ export { Thumbnail } from './Thumbnail';
 export { UploadSingleFileButton } from './UploadSingleFileButton';
 export { UploadMultipleFilesButton } from './UploadMultipleFilesButton';
 export { Dropdown}  from './Dropdown';
+export { Checkbox}  from './Checkbox';
+export { HomePageContainer}  from './HomePageContainer';
+
