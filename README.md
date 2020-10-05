@@ -2,7 +2,7 @@
 
 ## TODO
 - Forgot password route
-- Create user route
+- Create user route - refactor app.js into public & private routes
 - Design same approach for components 
 - Local storage vs realtime storage
 - Add index.js to all folders for better export

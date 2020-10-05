@@ -14,12 +14,11 @@ export const StyledButton = styled(Button)`
 export const SignOutButton = () => {
     const onClickSignOut = async () => {
         // Firebase code goes here
-        try{
+        try {
             await signOut();
         }
-        catch (e)
-        {
-alert(e.message);
+        catch (e) {
+            alert(e.message);
         }
     }
 

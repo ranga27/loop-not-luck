@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-
 const PageBackground = styled.div`
     background-color: #eee;
     position: absolute;
@@ -20,12 +19,7 @@ const ContentSection = styled.div`
     padding: 16px;
 `;
 
-export const HomePageContainer = ({ children }) => {
-    return (
-        <PageBackground>
-            <ContentSection>
-                {children}
-            </ContentSection>
-        </PageBackground>
-    );
-}
+export const HomePageContainer = ({
+    itemComponent: ItemComponent,
+}) =>
+    <ItemComponent />

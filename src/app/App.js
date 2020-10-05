@@ -37,7 +37,7 @@ import {
   CandidateEditProfilePage,
 } from '../candidates';
 import './App.css';
-import {TestPage} from '../test'
+import { TestPage } from '../test'
 /*
   This is the main React component that we render the rest of
   of app's components inside of. In our app, we're using this
@@ -54,7 +54,7 @@ export function App() {
           <SignInPage />
         </Route>
         <Route path='/test'>
-          <TestPage/>
+          <TestPage />
         </Route>
         <Route path='/create-account'>
           <CreateAccountPage />
