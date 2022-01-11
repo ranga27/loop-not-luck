@@ -69,3 +69,5 @@ node_modules/
 
 # workspace var
 .code-workspace
+.DS_Store
+src/.DS_Store
